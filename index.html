@@ -418,7 +418,8 @@
         </div>
       </div>
     </section>
-       <!-- Separate Send Message Form Section -->
+
+    <!-- Separate Send Message Form Section -->
     <section id="send-message" class="send-message-section">
       <div class="send-message-container">
 
@@ -439,7 +440,10 @@
             method="POST"
             class="send-message-form"
           >
-            <input type="hidden" name="_next" value="https://bibiruqia.github.io/my-portfolio/?sent=1#thank-you" />
+            <!-- _next is set automatically by the script at the bottom of this page
+                 so it always matches the real address of your site. The value below
+                 is only a fallback if JavaScript is disabled. -->
+            <input type="hidden" name="_next" value="https://bibiruqia.github.io/my-portfolio/?sent=1" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_captcha" value="false" />
 
@@ -529,7 +533,7 @@
             We appreciate your interest in NovaWeb Studio
             and will contact you soon.
           </p>
-          <a href="https://bibiruqia.github.io/my-portfolio/">Back to Portfolio</a>
+          <a href="./">Back to Portfolio</a>
         </div>
 
       </div>
@@ -558,13 +562,28 @@
 
   <script src="script.js"></script>
 
-    <script>
+  <script>
     document.addEventListener("DOMContentLoaded", function () {
       const message = document.getElementById("form-message");
+      const form = document.getElementById("send-message-form");
       const params = new URLSearchParams(window.location.search);
 
+      // Build the redirect URL automatically from the current page address,
+      // so the "thank you" redirect always lands on the correct page (no 404).
+      const nextInput = document.querySelector('input[name="_next"]');
+      if (nextInput) {
+        nextInput.value =
+          window.location.origin + window.location.pathname + "?sent=1";
+      }
+
+      // Show the thank-you message after FormSubmit redirects back
       if (message && params.get("sent") === "1") {
         message.hidden = false;
+
+        if (form) {
+          form.style.display = "none";
+        }
+
         message.scrollIntoView({ behavior: "smooth", block: "center" });
         history.replaceState(null, "", window.location.pathname + "#send-message");
       }
