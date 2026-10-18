@@ -418,8 +418,7 @@
         </div>
       </div>
     </section>
-
-    <!-- Separate Send Message Form Section -->
+       <!-- Separate Send Message Form Section -->
     <section id="send-message" class="send-message-section">
       <div class="send-message-container">
 
@@ -440,78 +439,37 @@
             method="POST"
             class="send-message-form"
           >
-            <input
-                type="hidden"
-                name="_next"
-                value="https://bibiruqia.github.io/my-portfolio/#thank-you"
-              />
-            <!-- <input type="hidden" name="_subject" value="New Portfolio Project Inquiry" /> -->
+            <input type="hidden" name="_next" value="https://bibiruqia.github.io/my-portfolio/?sent=1#thank-you" />
             <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
 
-            <!-- Automatic confirmation email to the client -->
             <input
               type="hidden"
               name="_autoresponse"
               value="Thank you for contacting NovaWeb Studio! We have received your web development inquiry. We will review your requirements and email you back regarding your requested service as soon as possible. We appreciate your interest!"
             />
 
-            <!-- Spam protection -->
-            <input
-              type="text"
-              name="_honey"
-              class="form-honeypot"
-              tabindex="-1"
-              autocomplete="off"
-              aria-hidden="true"
-            />
+            <input type="text" name="_honey" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
             <div class="send-form-row">
               <div class="send-form-group">
                 <label for="send-name">Name <span>*</span></label>
-                <input
-                  id="send-name"
-                  name="name"
-                  type="text"
-                  placeholder="Your full name"
-                  autocomplete="name"
-                  required
-                />
+                <input id="send-name" name="name" type="text" placeholder="Your full name" autocomplete="name" required />
               </div>
-
               <div class="send-form-group">
                 <label for="send-email">Email <span>*</span></label>
-                <input
-                  id="send-email"
-                  name="email"
-                  type="email"
-                  placeholder="Enter your email address"
-                  autocomplete="email"
-                  required
-                />
+                <input id="send-email" name="email" type="email" placeholder="Enter your email address" autocomplete="email" required />
               </div>
             </div>
 
             <div class="send-form-row">
               <div class="send-form-group">
                 <label for="send-phone">Phone</label>
-                <input
-                  id="send-phone"
-                  name="phone"
-                  type="tel"
-                  placeholder="Your phone number"
-                  autocomplete="tel"
-                />
+                <input id="send-phone" name="phone" type="tel" placeholder="Your phone number" autocomplete="tel" />
               </div>
-
               <div class="send-form-group">
                 <label for="send-company">Company</label>
-                <input
-                  id="send-company"
-                  name="company"
-                  type="text"
-                  placeholder="Company name"
-                  autocomplete="organization"
-                />
+                <input id="send-company" name="company" type="text" placeholder="Company name" autocomplete="organization" />
               </div>
             </div>
 
@@ -534,7 +492,6 @@
                   <option>Other</option>
                 </select>
               </div>
-
               <div class="send-form-group">
                 <label for="send-budget">Budget <span>*</span></label>
                 <select id="send-budget" name="budget" required>
@@ -551,13 +508,7 @@
 
             <div class="send-form-group">
               <label for="send-message-text">Message <span>*</span></label>
-              <textarea
-                id="send-message-text"
-                name="message"
-                rows="6"
-                placeholder="Tell us about your project..."
-                required
-              ></textarea>
+              <textarea id="send-message-text" name="message" rows="6" placeholder="Tell us about your project..." required></textarea>
             </div>
 
             <button type="submit" class="send-form-button">
@@ -569,25 +520,18 @@
             </p>
           </form>
         </div>
-       <!-- Thank-you message shown after form submission -->
-        <div
-          id="form-message"
-          class="form-success-message"
-          role="status"
-          aria-live="polite"
-          hidden
-        >
-        <h3>Thank You!</h3>
 
-        <p>
-          Your message has been submitted successfully.
-          We appreciate your interest in NovaWeb Studio
-          and will contact you soon.
-        </p>
+        <!-- Thank-you message shown after redirect -->
+        <div id="form-message" class="form-success-message" role="status" aria-live="polite" hidden>
+          <h3>Thank You!</h3>
+          <p>
+            Your message has been submitted successfully.
+            We appreciate your interest in NovaWeb Studio
+            and will contact you soon.
+          </p>
+          <a href="https://bibiruqia.github.io/my-portfolio/">Back to Portfolio</a>
+        </div>
 
-        <a href="https://bibiruqia.github.io/my-portfolio/#thank-you">
-         Back to Portfolio
-        </a>
       </div>
     </section>
   </main>
