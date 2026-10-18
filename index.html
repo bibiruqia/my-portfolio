@@ -435,6 +435,7 @@
         <div class="send-message-card">
           <form
             id="send-message-form"
+            autocomplete="off"
             action="https://formsubmit.co/novawebstudio.services@gmail.com"
             method="POST"
             class="send-message-form"
@@ -457,7 +458,6 @@
             <!-- Redirect back to the portfolio after successful submission -->
             <input
               type="hidden"
-              name="_next"
               value="https://bibirugia.github.io/my-portfolio/#thank-you"
             />
 
@@ -545,7 +545,7 @@
                 <label for="send-budget">Budget <span>*</span></label>
                 <select id="send-budget" name="budget" required>
                   <option value="" disabled selected>Select a range</option>
-                  <option>Under PKR 10,000</option>
+                  <option>PKR 10,000</option>
                   <option>PKR 10,000–25,000</option>
                   <option>PKR 25,000–50,000</option>
                   <option>PKR 50,000–100,000</option>
@@ -588,6 +588,9 @@
           submitted successfully. We will email you back regarding your
           requested service.
         </p>
+        <a href="https://bibirugia.github.io/my-portfolio/">
+         Back to Portfolio
+        </a>
       </div>
     </section>
   </main>
