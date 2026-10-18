@@ -558,26 +558,17 @@
 
   <script src="script.js"></script>
 
-  <!-- <script>
-    // Show the thank-you message when FormSubmit redirects back to the website.
+    <script>
     document.addEventListener("DOMContentLoaded", function () {
       const message = document.getElementById("form-message");
+      const params = new URLSearchParams(window.location.search);
 
-      if (message && window.location.hash === "#thank-you") {
+      if (message && params.get("sent") === "1") {
         message.hidden = false;
-        message.scrollIntoView({
-          behavior: "smooth",
-          block: "center"
-        });
-
-        // Remove the hash so refreshing does not show the message again.
-        history.replaceState(
-          null,
-          "",
-          window.location.pathname + window.location.search
-        );
+        message.scrollIntoView({ behavior: "smooth", block: "center" });
+        history.replaceState(null, "", window.location.pathname + "#send-message");
       }
     });
-  </script> -->
+  </script>
 </body>
 </html>
