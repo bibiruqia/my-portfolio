@@ -126,6 +126,23 @@ function updateScrollProgress() {
 window.addEventListener("scroll", updateScrollProgress, {
     passive: true
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const message = document.getElementById("form-message");
+    const form = document.getElementById("send-message-form");
+
+    if (window.location.hash === "#thank-you" && message) {
+        message.hidden = false;
+
+        if (form) {
+            form.style.display = "none";
+        }
+
+        message.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    }
+});
 
 window.addEventListener("resize", updateScrollProgress);
 
