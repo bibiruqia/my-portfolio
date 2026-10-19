@@ -1,4 +1,3 @@
-
 /* ==============================
    NOVAWEB STUDIO — INTERACTIONS
    ============================== */
@@ -106,44 +105,53 @@ if ("IntersectionObserver" in window) {
 const progressBar = document.getElementById("scroll-progress-bar");
 
 function updateScrollProgress() {
-    if (!progressBar) return;
+  if (!progressBar) return;
 
-    const scrollableHeight =
-        document.documentElement.scrollHeight - window.innerHeight;
+  const scrollableHeight =
+    document.documentElement.scrollHeight - window.innerHeight;
 
-    if (scrollableHeight <= 0) {
-        progressBar.style.width = "0%";
-        return;
-    }
+  if (scrollableHeight <= 0) {
+    progressBar.style.width = "0%";
+    return;
+  }
 
-    const scrollPercentage =
-        (window.scrollY / scrollableHeight) * 100;
+  const scrollPercentage =
+    (window.scrollY / scrollableHeight) * 100;
 
-    progressBar.style.width =
-        `${Math.min(100, Math.max(0, scrollPercentage))}%`;
+  progressBar.style.width =
+    `${Math.min(100, Math.max(0, scrollPercentage))}%`;
 }
 
 window.addEventListener("scroll", updateScrollProgress, {
-    passive: true
-});
-document.addEventListener("DOMContentLoaded", function () {
-    const message = document.getElementById("form-message");
-    const form = document.getElementById("send-message-form");
-
-    if (window.location.hash === "#thank-you" && message) {
-        message.hidden = false;
-
-        if (form) {
-            form.style.display = "none";
-        }
-
-        message.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-    }
+  passive: true
 });
 
 window.addEventListener("resize", updateScrollProgress);
 
 updateScrollProgress();
+
+
+/* ==============================
+   FORM THANK-YOU MESSAGE
+   ============================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+  const message = document.getElementById("form-message");
+  const form = document.getElementById("send-message-form");
+
+  if (window.location.hash === "#thank-you" && message) {
+    message.hidden = false;
+
+    if (form) {
+      form.style.display = "none";
+    }
+
+    message.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+
+    // Clear the hash so a refresh doesn't show the message again
+    history.replaceState(null, "", window.location.pathname);
+  }
+});
